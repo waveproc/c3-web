@@ -1,7 +1,7 @@
-import { defineConfig } from "astro/config"
-import tailwind from "@astrojs/tailwind"
-import starlight from "@astrojs/starlight"
-import fs from "node:fs"
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
+import starlight from "@astrojs/starlight";
+import fs from "node:fs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,7 +11,6 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     starlight({
-      favicon: "ico.svg",
       title: "The C3 Handbook",
       customCss: ["./src/content/docs.css"],
       expressiveCode: {
@@ -21,4 +20,4 @@ export default defineConfig({
       },
     }),
   ],
-})
+});
