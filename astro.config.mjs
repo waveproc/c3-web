@@ -1,68 +1,69 @@
-import {defineConfig} from "astro/config";
-import starlight from "@astrojs/starlight";
-import fs from "node:fs";
-import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from "astro/config"
+import starlight from "@astrojs/starlight"
+import fs from "node:fs"
+import tailwindcss from '@tailwindcss/vite'
 
 // https://astro.build/config
 export default defineConfig(
-    {
-      i18n: {
-          defaultLocale: "en",
-          locales: ["en"],
-      },
+  {
+    i18n: {
+      defaultLocale: "en",
+      locales: ["en"],
+    },
 
-      site: "https://c3-lang.org",
+    site: "https://waveproc.github.io/c3-web",
+    base: "/c3-web",
 
-      redirects: {
-		  '/docs': '/getting-started',
-          '/guide': '/getting-started',
-          '/introduction': '/getting-started',
+    redirects: {
+      '/docs': '/c3-web/getting-started',
+      '/guide': '/c3-web/getting-started',
+      '/introduction': '/c3-web/getting-started',
 
-          '/guide/basic-types-and-values': '/language-fundamentals/basic-types-and-values',
+      '/guide/basic-types-and-values': '/c3-web/language-fundamentals/basic-types-and-values',
 
-          '/guide/my-first-hello-world': '/getting-started/hello-world',
-          '/guide/my-first-project': '/getting-started/projects',
-          '/references/development': '/get-involved',
+      '/guide/my-first-hello-world': '/c3-web/getting-started/hello-world',
+      '/guide/my-first-project': '/c3-web/getting-started/projects',
+      '/references/development': '/c3-web/get-involved',
 
-          '/references': '/getting-started/design-goals',
-          '/introduction/design-goals': '/getting-started/design-goals',
+      '/references': '/c3-web/getting-started/design-goals',
+      '/introduction/design-goals': '/c3-web/getting-started/design-goals',
 
-          '/references/getting-started/prebuilt-binaries': '/getting-started/prebuilt-binaries',
-          '/install-c3/prebuilt-binaries': '/getting-started/prebuilt-binaries',
+      '/references/getting-started/prebuilt-binaries': '/c3-web/getting-started/prebuilt-binaries',
+      '/install-c3/prebuilt-binaries': '/c3-web/getting-started/prebuilt-binaries',
 
-          '/references/getting-started/setup': '/getting-started/compile',
-          '/install-c3/compile': '/getting-started/compile',
+      '/references/getting-started/setup': '/c3-web/getting-started/compile',
+      '/install-c3/compile': '/c3-web/getting-started/compile',
 
-          '/references/docs/examples': '/language-overview/examples',
-          '/references/getting-started/primer': '/language-overview/primer',
+      '/references/docs/examples': '/c3-web/language-overview/examples',
+      '/references/getting-started/primer': '/c3-web/language-overview/primer',
 
 
-          '/references/getting-started/allfeatures': '/faq/allfeatures',
-          '/introduction/roadmap': '/getting-started/roadmap',
-          '/compare': '/faq/compare-languages',
-          '/references/docs/compare': '/faq/compare-languages'
+      '/references/getting-started/allfeatures': '/c3-web/faq/allfeatures',
+      '/introduction/roadmap': '/c3-web/getting-started/roadmap',
+      '/compare': '/c3-web/faq/compare-languages',
+      '/references/docs/compare': '/c3-web/faq/compare-languages'
 
-      },
+    },
 
-      integrations: [
-          starlight(
-              {
-                  favicon: "/ico.svg",
-                  title: "C3",
-                  customCss: ["./src/content/docs.css"],
-                  expressiveCode: {
-                      shiki: {
-                          langs: [JSON.parse(fs.readFileSync("./c3-grammar.json", "utf-8"))],
-						  themes: {
-							  light: 'github-light',
-							  dark: 'github-dark',
-						  },
-                      },
-                  },
-              }),
-      ],
+    integrations: [
+      starlight(
+        {
+          favicon: "/ico.svg",
+          title: "C3",
+          customCss: ["./src/content/docs.css"],
+          expressiveCode: {
+            shiki: {
+              langs: [JSON.parse(fs.readFileSync("./c3-grammar.json", "utf-8"))],
+              themes: {
+                light: 'github-light',
+                dark: 'github-dark',
+              },
+            },
+          },
+        }),
+    ],
 
-      vite: {
-          plugins: [tailwindcss()]
-      }
-})
+    vite: {
+      plugins: [tailwindcss()]
+    }
+  })
